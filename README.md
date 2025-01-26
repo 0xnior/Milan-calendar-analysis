@@ -10,6 +10,8 @@ df = pd.read_csv('calendar.csv')
 ```diff
 df['available'].value_counts()
 ```
+<img width="318" alt="image" src="https://github.com/user-attachments/assets/1199fc29-58e5-4680-b083-b6f1f8b02365" />
+
 ## 2. Purpose : calculates the percentage of available (t) and unavailable (f) dates.
 ```diff
 df['available'].value_counts(normalize=True)* 100
