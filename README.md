@@ -22,3 +22,59 @@ df['available'].value_counts(normalize=True)* 100
 busiest = df[df['available']=='f']['date'].value_counts()
 print(f'Busiest Dates: {busiest.head()}')
 ```
+## 4. Plot a bar graph to show availability percentage
+```diff
+import matplotlib.pyplot as plt
+availability_percentage.plot(kind='bar', color=['green', 'red'])
+plt.title('Availability Percentages')
+plt.ylabel('Percentage')
+plt.xlabel('Available (t/f)')
+plt.show()
+```
+<img width="569" alt="image" src="https://github.com/user-attachments/assets/088d2d48-61ac-4878-b0d0-3a34ca8b93bf" />
+
+## 5. Plot the busiest day
+```diff
+busiest_dates.head(10).plot(kind='bar', color='orange')
+plt.title('Top 10 Busiest Dates')
+plt.ylabel('Number of Listings Unavailable')
+plt.xlabel('Date')
+plt.show()
+```
+<img width="586" alt="image" src="https://github.com/user-attachments/assets/7913f297-fa98-431f-bb26-e9c542e1ed3f" />
+
+## 📄 Download listings dataset of Hawaii from
+https://data.insideairbnb.com/italy/lombardy/milan/2024-09-17/visualisations/listings.csv
+<img width="586" alt="image" src="https://github.com/user-attachments/assets/01973be3-f876-46d2-93b5-6aab3ca75bb7" />
+
+## ✅ Room type and price is given seperately
+Let`s Combine and visualize them
+```diff
+import matplotlib.pyplot as plt
+price_by_room = listings.groupby('room_type')['price'].mean()
+print(price_by_room)
+
+# Plot price by room type
+price_by_room.plot(kind='bar', color='cyan')
+plt.title('Average Price by Room Type')
+plt.ylabel('Average Price')
+plt.xlabel('Room Type')
+
+plt.show()
+```
+<img width="569" alt="image" src="https://github.com/user-attachments/assets/c85ff8f8-f39f-4fc4-aa97-12bec88982bd" />
+## ✅ Which are the top 10 neighborhoods with the most listings?
+
+## Let us see the listings on a real map
+High Density: The areas in red or yellow (the "hot" colors) indicate higher density or concentration of listings. This means there are more listings in these areas.
+Popular Locations: These regions might be more popular or in high demand. They could be near tourist attractions, iconic neighborhoods, or central areas in Milan where people tend to stay more often, such as near the Duomo, Galleria Vittorio Emanuele II, or Navigli.
+
+Colder Areas (Green/Blue):
+
+Low Density: Areas with blue or green (the "cold" colors) indicate a lower concentration of listings. These regions have fewer listings available.
+Less Popular Locations: These areas might be less popular or further from key attractions. Lower density could imply more affordable areas or less tourist traffic, which could suit those seeking quieter, less crowded places.
+
+Density Patterns:
+
+Clustered Areas: Clusters of heatmap intensity represent hotspots. These may correspond to high-traffic areas such as the city center, popular piazzas, or cultural landmarks like the Sforza Castle or La Scala.
+Spread-Out Listings: A more uniform distribution on the heatmap suggests that listings are spread across Milan, reflecting a more balanced demand for rentals in various neighborhoods.
