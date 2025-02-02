@@ -103,3 +103,27 @@ m
 ```
 <img width="1012" alt="Screenshot 1446-08-03 at 11 45 16 AM" src="https://github.com/user-attachments/assets/880f323a-3ab5-47aa-b8ff-38286ea565b5" />
 
+## Which day had the fewest unavailable listings
+```diff
+least_busy = df[df['available']=='f']['date'].value_counts().sort_values(ascending=True)
+print(f'Least Busy Dates: {least_busy.head()}')
+```
+<img width="301" alt="image" src="https://github.com/user-attachments/assets/e93a6780-026f-4516-b225-4419fd1eca17" />
+
+## How does the trend of available listings change over time?
+```diff
+import matplotlib.pyplot as plt
+
+# Filter for available listings, count them by date, and sort by date for a proper time series
+daily_available = df[df['available']=='t']['date'].value_counts().sort_index()
+
+plt.figure(figsize=(10,5))
+plt.plot(daily_available.index, daily_available.values, marker='o', linestyle='-', color='blue')
+plt.title('Daily Trend of Available Listings')
+plt.xlabel('Date')
+plt.ylabel('Count of Available Listings')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+```
+<img width="1005" alt="Screenshot 1446-08-03 at 11 51 45 AM" src="https://github.com/user-attachments/assets/a8658e9d-9948-47e9-9d38-d6e38777ced1" />
