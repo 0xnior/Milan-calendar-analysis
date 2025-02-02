@@ -63,6 +63,7 @@ plt.xlabel('Room Type')
 plt.show()
 ```
 <img width="569" alt="image" src="https://github.com/user-attachments/assets/c85ff8f8-f39f-4fc4-aa97-12bec88982bd" />
+
 ## ✅ Which are the top 10 neighborhoods with the most listings?
 
 ## Let us see the listings on a real map
