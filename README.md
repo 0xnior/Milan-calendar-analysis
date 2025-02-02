@@ -65,6 +65,33 @@ plt.show()
 <img width="569" alt="image" src="https://github.com/user-attachments/assets/c85ff8f8-f39f-4fc4-aa97-12bec88982bd" />
 
 ## ✅ Which are the top 10 neighborhoods with the most listings?
+```diff
+neighborhood_counts = listings['neighbourhood'].value_counts().head(10)
+print("Top 10 Neighborhoods by Listings:")
+print(neighborhood_counts)
+
+# Plot neighborhoods with most listings
+neighborhood_counts.plot(kind='bar', color='lightcoral')
+plt.title('Top 10 Neighborhoods by Listings')
+plt.ylabel('Number of Listings')
+plt.xlabel('Neighborhood')
+plt.xticks(rotation=90)
+plt.show()
+```
+<img width="591" alt="Screenshot 1446-08-03 at 12 15 49 PM" src="https://github.com/user-attachments/assets/18012e94-941a-490d-84e5-84a28b091eab" />
+
+## ✅ Geographical Distribution of Listings (Price Colored)
+```diff
+import matplotlib.pyplot as plt
+import seaborn as sns
+plt.figure(figsize=(10, 6))
+sns.scatterplot(data=listings, x='longitude', y='latitude', hue='price', palette='viridis', size='price', sizes=(10, 200))
+plt.title('Geographical Distribution of Listings (Price Colored)')
+plt.xlabel('Longitude')
+plt.ylabel('Latitude')
+plt.show()
+```
+<img width="863" alt="Screenshot 1446-08-03 at 12 16 59 PM" src="https://github.com/user-attachments/assets/111cc2a2-c62e-485e-9cba-1ceb5deaa7d2" />
 
 ## Let us see the listings on a real map
 High Density: The areas in red or yellow (the "hot" colors) indicate higher density or concentration of listings. This means there are more listings in these areas.
