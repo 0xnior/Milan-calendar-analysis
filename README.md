@@ -78,3 +78,28 @@ Density Patterns:
 
 Clustered Areas: Clusters of heatmap intensity represent hotspots. These may correspond to high-traffic areas such as the city center, popular piazzas, or cultural landmarks like the Sforza Castle or La Scala.
 Spread-Out Listings: A more uniform distribution on the heatmap suggests that listings are spread across Milan, reflecting a more balanced demand for rentals in various neighborhoods.
+```diff
+import folium
+from folium.plugins import HeatMap
+import pandas as pd
+
+
+milan_data = listings[['latitude', 'longitude', 'price']]
+
+
+m = folium.Map(location=[45.470078, 9.181165], zoom_start=12)
+
+
+heat_data = [[row['latitude'], row['longitude']] for index, row in milan_data.iterrows()]
+
+
+HeatMap(heat_data).add_to(m)
+
+
+m.save('milan_heatmap.html')
+
+
+m
+```
+<img width="1012" alt="Screenshot 1446-08-03 at 11 45 16 AM" src="https://github.com/user-attachments/assets/880f323a-3ab5-47aa-b8ff-38286ea565b5" />
+
